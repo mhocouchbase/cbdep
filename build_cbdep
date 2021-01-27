@@ -9,8 +9,12 @@ mkdir -p build
 python3 -m venv build/venv
 . build/venv/bin/activate
 
+echo $PATH
+#update pip3
+pip3 install --upgrade pip
 echo Adding pyinstaller
-pip3 install pyinstaller
+#pip3 install pyinstaller
+pip3 install https://github.com/rokm/pyinstaller/archive/macos11-arm-support.zip
 
 echo Installing cbdep requirements
 pip3 install -r ${SCRIPTPATH}/requirements.txt
