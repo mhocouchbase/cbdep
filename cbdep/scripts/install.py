@@ -224,7 +224,6 @@ class Installer:
         if_version, etc. keys
         Returns: Said block, or None if none match
         """
-
         for block in blocks:
             if self.match_platform(block) and self.match_version(block):
                 return block

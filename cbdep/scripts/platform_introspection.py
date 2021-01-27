@@ -3,6 +3,7 @@ Functions for determining current platform information
 """
 
 import platform
+import os
 
 
 def get_platforms():
@@ -52,6 +53,12 @@ def get_platforms():
         platforms.insert(0, "macos")
         platforms.insert(0, "mac")
         platforms.insert(0, "osx")
+
+        machine = platform.machine()
+        if machine == "arm64":
+            platforms.insert(0, f"macosx-{machine}")
+        else:
+            platforms.insert(0, "macosx-x86_64")
 
     elif system == "windows":
         # QQQ Somehow introspect MSVC version?
